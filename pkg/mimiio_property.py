@@ -1,4 +1,4 @@
-"""xiaomi adapter for Mozilla WebThings Gateway."""
+"""xmimiio adapter for Mozilla WebThings Gateway."""
 
 from gateway_addon import Property
 import socket

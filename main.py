@@ -9,7 +9,7 @@ import time
 
 sys.path.append(path.join(path.dirname(path.abspath(__file__)), 'lib'))
 
-from pkg.xiaomi_adapter import XiaomiAdapter  # noqa
+from pkg.mimiio_adapter import MimiioAdapter  
 
 
 _API_VERSION = {
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     signal.signal(signal.SIGINT, cleanup)
     signal.signal(signal.SIGTERM, cleanup)
-    _ADAPTER = XiaomiAdapter(verbose=True)
+    _ADAPTER = MimiioAdapter(verbose=True)
 
     # Wait until the proxy stops running, indicating that the gateway shut us
     # down.

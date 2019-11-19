@@ -1,33 +1,34 @@
 {
-  "name": "xiaomi-adapter",
-  "display_name": "xiaomi",
+  "name": "mimiio-adapter",
+  "display_name": "mimiio",
   "version": "0.0.1",
-  "description": "xiaomi device for Mozilla WebThings Gateway",
+  "description": "mimiio device for Mozilla WebThings Gateway",
   "author": "Mozilla IoT",
   "main": "main.py",
   "keywords": [
     "mozilla",
     "iot",
     "adapter",
-    "xiaomi"
+    "xiaomi",
+    "mimiio"
   ],
-  "homepage": "https://github.com/FullMentalPanic/xiaomi-adapter",
+  "homepage": "https://github.com/FullMentalPanic/mimiio-adapter",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FullMentalPanic/xiaomi-adapter.git"
+    "url": "https://github.com/FullMentalPanic/mimiio-adapter.git"
   },
   "bugs": {
-    "url": "https://github.com/FullMentalPanic/xiaomi-adapter/issues"
+    "url": "https://github.com/FullMentalPanic/mimiio-adapter/issues"
   },
   "files": [
     "LICENSE",
     "main.py",
     "lib",
     "pkg/__init__.py",
-    "pkg/tplink_adapter.py",
-    "pkg/tplink_device.py",
-    "pkg/tplink_property.py",
+    "pkg/mimiio_adapter.py",
+    "pkg/mimiio_device.py",
+    "pkg/mimiio_property.py",
     "pkg/util.py"
   ],
   "moziot": {

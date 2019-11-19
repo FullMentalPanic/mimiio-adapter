@@ -1,7 +1,7 @@
-"""Xiaomi adapter for Mozilla WebThings Gateway."""
+"""mimiio adapter for Mozilla WebThings Gateway."""
 
 from gateway_addon import Adapter, Database
-import xiaomi_device
+import mimiio_device
 
 
 _TIMEOUT = 3
@@ -11,7 +11,7 @@ DeviceTypeDict = {
     'XiaomiMiRobotVacuum': 'vacuum',
 }
 
-class XiaomiAdapter(Adapter):
+class MimiioAdapter(Adapter):
     """Adapter for Xiaomi smart home devices."""
 
     def __init__(self, verbose=False):
@@ -21,8 +21,8 @@ class XiaomiAdapter(Adapter):
         """
         self.name = self.__class__.__name__
         Adapter.__init__(self,
-                         'xiaomi-adapter',
-                         'xiaomi-adapter',
+                         'mimiio-adapter',
+                         'mimiio-adapter',
                          verbose=verbose)
         self.pairing = False
         self.add_from_config()
@@ -30,7 +30,7 @@ class XiaomiAdapter(Adapter):
 
     def add_from_config(self):
         """Attempt to add all configured devices."""
-        database = Database('xiaomi-adapter')
+        database = Database('mimiio-adapter')
         if not database.open():
             return
         
@@ -43,10 +43,10 @@ class XiaomiAdapter(Adapter):
     def _add_device(self, dev, ip, token):
         try:
             #import importlib
-            #module = importlib.import_module(".xiaomi_device." + DeviceTypeDict[dev])
+            #module = importlib.import_module(".mimiio_device." + DeviceTypeDict[dev])
             _id = 'xiaomi-' + dev +token
             if _id not in self.devices:
-                device = getattr(xiaomi_device, DeviceTypeDict[dev])(_id, ip, token)
+                device = getattr(mimiio_device, DeviceTypeDict[dev])(_id, ip, token)
                 self.handle_device_added(device)
         except:           
             return  

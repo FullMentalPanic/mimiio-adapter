@@ -11,7 +11,7 @@ rm -rf *.tgz package SHA256SUMS lib
 mkdir lib package
 
 # Pull down Python dependencies
-pip3 install -r requirements.txt -t lib --no-binary xiaomi --prefix ""
+pip3 install -r requirements.txt -t lib --no-binary mimiio --prefix ""
 
 # Put package together
 cp -r lib pkg LICENSE manifest.json package.json *.py README.md package/
@@ -24,4 +24,4 @@ find . -type f \! -name SHA256SUMS -exec sha256sum {} \; >> SHA256SUMS
 cd -
 
 # Make the tarball
-tar czf "xiaomi-adapter-${version}.tgz" package
+tar czf "mimiio-adapter-${version}.tgz" package

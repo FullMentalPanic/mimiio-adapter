@@ -1,9 +1,10 @@
+"""mimiio adapter for Mozilla WebThings Gateway."""
 from gateway_addon import Device
 import socket
 import threading
 import time
 
-from .xiaomi_property import PhilipsBulbProperty
+from .mimiio_property import PhilipsBulbProperty
 
 _POLL_INTERVAL = 5
 
