@@ -38,25 +38,33 @@
     "plugin": true,
     "exec": "python3 {path}/main.py",
     "config": {
-      "addresses": [],
-      "token": [],
-      "module":{
-        "type": "string",
-        "enum": [
-          "philips_bulb"
-        ]
+      "DeviceType":"PhilipRuziBlub",
+      "Token":"",
+      "IPaddress":""
     },
     "schema": {
-      "type": "object",
-      "required": [
-        "addresses"
+      "title":"Device",
+      "type":"object",
+      "description": "Configuration for Xiaomi device",
+      "required":[
+        "DeviceType"
       ],
-      "properties": {
-        "addresses": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+      "properties":{
+        "DeviceType": {
+          "type": "string",
+          "description": "Choose xiao mi device type",
+          "enum": [
+            "PhilipsZhiruiSmartLEDBulb",
+            "XiaomiMiRobotVacuum"
+          ]
+        },
+        "Token":{
+          "type":"string",
+          "description": "xiao mi token ID"
+        },
+        "IPaddress":{
+          "type":"string",
+          "description": "xiao mi device IP address"
         }
       }
     }
