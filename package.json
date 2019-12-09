@@ -25,11 +25,11 @@
     "LICENSE",
     "main.py",
     "lib",
+    "manifest.json",
     "pkg/__init__.py",
     "pkg/mimiio_adapter.py",
     "pkg/mimiio_device.py",
-    "pkg/mimiio_property.py",
-    "pkg/util.py"
+    "pkg/mimiio_property.py"
   ],
   "moziot": {
     "api": {

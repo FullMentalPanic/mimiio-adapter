@@ -1,7 +1,7 @@
 """mimiio adapter for Mozilla WebThings Gateway."""
 
 from gateway_addon import Adapter, Database
-import mimiio_device
+from .mimiio_device import *
 
 
 _TIMEOUT = 3
@@ -37,6 +37,8 @@ class MimiioAdapter(Adapter):
 
         config = database.load_config()
         database.close()
+        if not config or 'Token' not in config or 'IPaddress' not in config:
+            return
         if (config['Token'] is not '') and (config['IPaddress'] is not ''):
             self._add_device(config['DeviceType'], config['Token'], config['IPaddress'])
             

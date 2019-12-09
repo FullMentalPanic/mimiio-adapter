@@ -9,11 +9,44 @@
         "strict_min_version": "0.0.1"
       }
     },
-    "homepage_url": "https://github.com/FullMentalPanic/xiaomi-adapter",
-    "id": "xiaomi-adapter",
+    "homepage_url": "https://github.com/FullMentalPanic/mimiio-adapter",
+    "id": "mimiio-adapter",
     "license": "MPL-2.0",
     "manifest_version": 1,
-    "name": "Xiaomi",
-    "short_name": "Xiaomi",
-    "version": "0.0.1"
+    "name": "mimiio",
+    "short_name": "Mmiio",
+    "version": "0.0.1",
+    "options": {
+      "default":{
+        "DeviceType":"PhilipRuziBlub",
+        "Token":"",
+        "IPaddress":""
+      },
+      "schema": {
+        "title":"Device",
+        "type":"object",
+        "description": "Configuration for Xiaomi device",
+        "required":[
+          "DeviceType"
+        ],
+        "properties":{
+          "DeviceType": {
+            "type": "string",
+            "description": "Choose xiao mi device type",
+            "enum": [
+              "PhilipsZhiruiSmartLEDBulb",
+              "XiaomiMiRobotVacuum"
+            ]
+          },
+          "Token":{
+            "type":"string",
+            "description": "xiao mi token ID"
+          },
+          "IPaddress":{
+            "type":"string",
+            "description": "xiao mi device IP address"
+          }
+        }
+      }
+    }
   }
