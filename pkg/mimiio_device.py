@@ -98,16 +98,16 @@ class PhilipsBulb(Device):
 
     def scence(self):
         """Determine whether or not the light is dimmable."""
-        return self.bulb_properties.scene()
+        return self.bulb_properties.scene
 
     def is_on(self):
         """Determine whether or not the light is on."""
-        return self.bulb_properties.is_on()  
+        return self.bulb_properties.is_on  
 
     def color_temperature(self):
         """Determine the current color temperature."""
-        return self.bulb_properties.color_temperature()
+        return self.bulb_properties.color_temperature
 
     def brightness(self):
         """Determine the current brightness of the light."""
-        return self.bulb_properties.brightness()
+        return self.bulb_properties.brightness

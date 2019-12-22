@@ -48,7 +48,9 @@
       "type":"object",
       "description": "Configuration for Xiaomi device",
       "required":[
-        "DeviceType"
+        "DeviceType",
+        "Token",
+        "IPaddress"
       ],
       "properties":{
         "DeviceType": {

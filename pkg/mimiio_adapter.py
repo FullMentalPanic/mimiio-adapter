@@ -1,7 +1,7 @@
 """mimiio adapter for Mozilla WebThings Gateway."""
 
 from gateway_addon import Adapter, Database
-from .mimiio_device import *
+import pkg.mimiio_device 
 
 
 _TIMEOUT = 3
@@ -25,39 +25,46 @@ class MimiioAdapter(Adapter):
                          'mimiio-adapter',
                          verbose=verbose)
         self.pairing = False
-        self.add_from_config()
-     #   self.start_pairing(_TIMEOUT)
+        #self.add_from_config()
+        self.start_pairing(_TIMEOUT)
 
     def add_from_config(self):
         """Attempt to add all configured devices."""
-        database = Database('mimiio-adapter')
-        if not database.open():
-            return
-        
-
-        config = database.load_config()
-        database.close()
-        if not config or 'Token' not in config or 'IPaddress' not in config:
-            return
-        if (config['Token'] is not '') and (config['IPaddress'] is not ''):
-            self._add_device(config['DeviceType'], config['Token'], config['IPaddress'])
-            
+        database = Database(self.package_name)
+        if database.open():
+            config = database.load_config()            
+            if not config or 'Token' not in config or 'IPaddress' not in config:
+                return
+            if (config['Token'] is not '') and (config['IPaddress'] is not ''):
+                self._add_device(config['DeviceType'], config['IPaddress'],config['Token'] )
+                #print("add"+ str(config['DeviceType'])+ str(config['Token']))
+            database.close() 
     def _add_device(self, dev, ip, token):
         try:
-            #import importlib
-            #module = importlib.import_module(".mimiio_device." + DeviceTypeDict[dev])
             _id = 'xiaomi-' + dev +token
             if _id not in self.devices:
-                device = getattr(mimiio_device, DeviceTypeDict[dev])(_id, ip, token)
+                #print("token：" +token)
+                #print("ip："+ip)
+                device = getattr(pkg.mimiio_device, DeviceTypeDict[dev])(self, _id, ip, token)
                 self.handle_device_added(device)
-        except:           
-            return  
+            else:
+                print("device already in system")
+        except:
+            print("failed to add new device...")
 
-  #  def start_pairing(self, timeout):
+
+    def start_pairing(self, timeout):
         """
         Start the pairing process.
         timeout -- Timeout in seconds at which to quit pairing
         """
+        if self.pairing:
+            return
+
+        self.pairing = True
+        self.add_from_config()
+        self.pairing = False
+        
 
     def cancel_pairing(self):
         """Cancel the pairing process."""
