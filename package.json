@@ -29,7 +29,8 @@
     "pkg/__init__.py",
     "pkg/mimiio_adapter.py",
     "pkg/mimiio_device.py",
-    "pkg/mimiio_property.py"
+    "pkg/philipsbulb_device.py",
+    "pkg/philipsbulb_property.py"
   ],
   "moziot": {
     "api": {

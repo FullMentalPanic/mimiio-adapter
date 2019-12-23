@@ -8,7 +8,7 @@ _TIMEOUT = 3
 
 DeviceTypeDict = {
     'PhilipsZhiruiSmartLEDBulb': 'PhilipsBulb',
-    'XiaomiMiRobotVacuum': 'vacuum',
+    'XiaomiMiRobotVacuum': 'Vacuum',
 }
 
 class MimiioAdapter(Adapter):
